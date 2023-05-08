@@ -1,7 +1,5 @@
 'use client';
 import './globals.css'
-import logo from '../../public/descarga.png'
-import Image from "next/image";
 
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
