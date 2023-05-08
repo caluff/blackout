@@ -15,14 +15,14 @@ export const metadata = {
 export default function RootLayout({children}) {
 
     const [toggleSidebar, setToggleSidebar] = useState(false);
-
+    const [bread, setBread] = useState("Home");
     return (
         <html lang="en">
         <body className={"bg-slate-900"}>
-        <Navbar setToggleSidebar={setToggleSidebar} toggleSidebar={toggleSidebar}/>
+        <Navbar setToggleSidebar={setToggleSidebar} bread={bread} setBread={setBread}/>
         <div className={"overflow-hidden"}>
             <div className={"max-w-7xl mx-auto px-4 sm:px-6 md:px-8"}>
-                <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
+                <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} bread={bread} setBread={setBread}/>
                 <div className={"lg:pl-[19.5rem]"}>
                     <main className={"max-w-3xl mx-auto relative z-20 pt-10 xl:max-w-none"}>
                         {children}

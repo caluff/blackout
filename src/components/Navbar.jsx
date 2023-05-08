@@ -1,8 +1,9 @@
 import Image from "next/image";
 import logo from "../../public/descarga.png";
 import {Bars3Icon, ChevronRightIcon, MagnifyingGlassIcon} from "@heroicons/react/24/outline";
+import Link from "next/link";
 
-const Navbar = ({setToggleSidebar,toggleSidebar}) => {
+const Navbar = ({setToggleSidebar,bread,setBread}) => {
   return (
       <div className={"sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500" +
           "lg:z-50 lg:border-b border-slate-50/[0.06] " +
@@ -33,7 +34,9 @@ const Navbar = ({setToggleSidebar,toggleSidebar}) => {
                   </button>
                   <ol className={"ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0"}>
                       <li className={"flex item-center"}>
-                          <span className={"text-slate-400"}>Home</span>
+                          <Link href={"/"}>
+                              <span className={"text-slate-400"}>{bread}</span>
+                          </Link>
                           <ChevronRightIcon className={"mx-3 overflow-visible text-slate-400 w-3 h-6"}/>
                       </li>
                       <li className={"font-semibold truncate text-slate-200"}>

@@ -1,9 +1,13 @@
 import {MagnifyingGlassIcon, HomeIcon, QueueListIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import {useState} from "react";
+import {categories} from "@/constants";
 
+const Nav = ({setVisibleOffer, visibleOffer,bread, setBread}) => {
 
-const Nav = ({setVisibleOffer, visibleOffer}) => {
+    const isNotActive = "block border-l pl-4 -ml-px  border-transparent hover:border-slate-500 text-slate-400 hover:text-slate-300"
+    const isActive = "block border-l pl-4 -ml-px text-indigo-400 border-current font-semibold"
+    //({isActive}) => isActive ? isActive : isNotActive
     return (
         <nav id={"nav"} className={"lg:text-sm lg:leading-6 relative"}>
             <div className={"sticky top-0 -ml-0.5 pointer-events-none hidden lg:block"}>
@@ -22,7 +26,8 @@ const Nav = ({setVisibleOffer, visibleOffer}) => {
                     <Link href={"/"}
                           className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-semibold text-sky-400"}>
                         <div
-                            onClick={()=>setVisibleOffer(false)}
+                            onClick={() => {setVisibleOffer(false);
+                                setBread("Home") }}
                             className={"mr-4 rounded-md ring-0 ring-slate-900/5 shadow-none group-hover:shadow-none group-hover:ring-slate-900/10 group-hover:bg-sky-500 bg-slate-700"}>
                             <HomeIcon width={24} height={24}/>
                         </div>
@@ -32,7 +37,9 @@ const Nav = ({setVisibleOffer, visibleOffer}) => {
                 <li>
                     <Link href={"/category"}
                           className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-medium text-indigo-400"}
-                          onClick={() => setVisibleOffer(true)}>
+                          onClick={() => {
+                              setVisibleOffer(true);
+                              setBread("Offer")}}>
                         <div
                             className={"mr-4 rounded-md ring-0 ring-slate-900/5 shadow-none group-hover:shadow-none group-hover:ring-slate-900/10 group-hover:bg-indigo-500 bg-slate-800"}>
                             <QueueListIcon width={24} height={24}/>
@@ -46,23 +53,17 @@ const Nav = ({setVisibleOffer, visibleOffer}) => {
                             Category
                         </h5>
                         <ul className={"space-y-6 lg:space-y-2 border-l border-slate-800"}>
-                            <li>
-                                <Link href={"#"}
-                                      className={"block border-l pl-4 -ml-px text-indigo-400 border-current font-semibold"}>
-                                    primera categoria
-                                </Link>
-                            </li>
-
-                            <li>
-                                <Link href={"#"}
-                                      className={"block border-l pl-4 -ml-px  border-transparent hover:border-slate-500 text-slate-400 hover:text-slate-300"}>
-                                    segunda categoria
-                                </Link>
-                            </li>
+                            {categories.map((category) => (
+                                <li key={category.id}>
+                                    <Link href={`category/#${category.id}`}
+                                          className={isNotActive}>
+                                        {category.title}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </li>
                 )}
-
             </ul>
         </nav>
     )
