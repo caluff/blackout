@@ -9,7 +9,7 @@ const FetchPost = async ({idTitle}) => {
     return records.map((record) => (
         idTitle === record.category && (
             <Link href={`/category/#${record.category}`} key={record.id}
-                  className={"rounded-2xl group relative block bg-black w-48 h-60 lg:h-80 lg:w-64"}>
+                  className={"rounded-2xl group relative block bg-black w-full h-60 lg:h-80 lg:w-64"}>
                 <Image src={coffee} alt={record.name}
                        className={"rounded-2xl absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"}/>
                 <div className={"relative p-4 sm:p-6 lg:p-8"}>

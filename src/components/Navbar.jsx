@@ -3,12 +3,12 @@ import logo from "../../public/descarga.png";
 import {Bars3Icon, ChevronRightIcon, MagnifyingGlassIcon} from "@heroicons/react/24/outline";
 import Link from "next/link";
 
-const Navbar = ({setToggleSidebar,bread,setBread}) => {
+const Navbar = ({setToggleSidebar,bread}) => {
   return (
-      <div className={"sticky top-0 z-40 w-full backdrop-blur flex-none transition-colors duration-500" +
+      <div className={"sticky top-0 z-40 w-full backdrop-blur-md flex-none transition-colors duration-500" +
           "lg:z-50 lg:border-b border-slate-50/[0.06] " +
           "bg-transparent"}>
-          <div className={"max-w-7xl mx-auto"}>
+          <div className={"max-w-[90rem] mx-auto"}>
               <div className={" py-4 border-b lg:px-8 lg:border-0 border-slate-300/10 mx-4 lg:mx-0"}>
                   <div className={"relative flex items-center"}>
                       <a className={"mr-3 flex w-[2.0625rem] overflow-hidden md:w-auto"} href={"/"}>

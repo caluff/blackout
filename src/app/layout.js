@@ -1,7 +1,6 @@
 'use client';
 import './globals.css'
 
-import {bg1} from "../../public";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 import {useState} from "react";
@@ -18,7 +17,7 @@ export default function RootLayout({children}) {
         <body className={"bg-slate-900"}>
         <Navbar setToggleSidebar={setToggleSidebar} bread={bread} setBread={setBread}/>
         <div className={"overflow-hidden"}>
-            <div className={"max-w-[88rem] mx-auto px-4 sm:px-6 md:px-8"}>
+            <div className={"max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8"}>
                 <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} bread={bread}
                          setBread={setBread}/>
                 <div className={"lg:pl-[19rem]"}>
