@@ -1,0 +1,7 @@
+{
+  "databaseURL": "https://Daniel-Caluff-s-workspace-6q6mfc.us-east-1.xata.sh/db/black-out",
+  "codegen": {
+    "output": "src/xata.js",
+    "moduleType": "esm"
+  }
+}

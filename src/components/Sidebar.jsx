@@ -3,8 +3,11 @@ import Link from "next/link";
 import {useState} from "react";
 import {categories} from "@/constants";
 
-const Nav = ({setVisibleOffer, visibleOffer,bread, setBread}) => {
-
+const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar,records}) => {
+    const [visibleOffer, setVisibleOffer] = useState(false);
+    const metToggle = () => {
+        if (toggleSidebar) setToggleSidebar(false)
+    }
     const isNotActive = "block border-l pl-4 -ml-px  border-transparent hover:border-slate-500 text-slate-400 hover:text-slate-300"
     const isActive = "block border-l pl-4 -ml-px text-indigo-400 border-current font-semibold"
     //({isActive}) => isActive ? isActive : isNotActive
@@ -24,11 +27,10 @@ const Nav = ({setVisibleOffer, visibleOffer,bread, setBread}) => {
             <ul>
                 <li>
                     <Link href={"/"}
-                          className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-semibold text-sky-400"}>
+                          className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-semibold text-sky-400 "}>
                         <div
-                            onClick={() => {setVisibleOffer(false);
-                                setBread("Home") }}
-                            className={"mr-4 rounded-md ring-0 ring-slate-900/5 shadow-none group-hover:shadow-none group-hover:ring-slate-900/10 group-hover:bg-sky-500 bg-slate-700"}>
+                            onClick={() => setVisibleOffer(false)}
+                            className={"shadow-lg shadow-sky-500/50 mr-4 rounded-md ring-0 ring-slate-900/5 group-hover:ring-slate-900/10 group-hover:bg-sky-500 bg-slate-700"}>
                             <HomeIcon width={24} height={24}/>
                         </div>
                         Home
@@ -37,11 +39,9 @@ const Nav = ({setVisibleOffer, visibleOffer,bread, setBread}) => {
                 <li>
                     <Link href={"/category"}
                           className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-medium text-indigo-400"}
-                          onClick={() => {
-                              setVisibleOffer(true);
-                              setBread("Offer")}}>
+                          onClick={() => setVisibleOffer(true)}>
                         <div
-                            className={"mr-4 rounded-md ring-0 ring-slate-900/5 shadow-none group-hover:shadow-none group-hover:ring-slate-900/10 group-hover:bg-indigo-500 bg-slate-800"}>
+                            className={"shadow-lg shadow-indigo-500/50 mr-4 rounded-md ring-0 ring-slate-900/5 group-hover:ring-slate-900/10 group-hover:bg-indigo-500 bg-slate-800"}>
                             <QueueListIcon width={24} height={24}/>
                         </div>
                         Offer
@@ -49,14 +49,17 @@ const Nav = ({setVisibleOffer, visibleOffer,bread, setBread}) => {
                 </li>
                 {visibleOffer && (
                     <li className={"mt-12 lg:mt-8"}>
-                        <h5 className={"mb-8 lg:mb-3 font-semibold text-slate-200"}>
+                        <h5 className={"mb-8 lg:mb-3 font-semibold text-slate-200 "}>
                             Category
                         </h5>
                         <ul className={"space-y-6 lg:space-y-2 border-l border-slate-800"}>
                             {categories.map((category) => (
-                                <li key={category.id}>
-                                    <Link href={`category/#${category.id}`}
-                                          className={isNotActive}>
+                                <li key={category.id} aria-label="Sidebar navigation">
+                                    <Link href={category.route}
+                                          className={category.current?isActive:isNotActive}
+                                          onClick={() => metToggle()}
+                                          aria-current={category.current ? 'page' :true}
+                                    >
                                         {category.title}
                                     </Link>
                                 </li>
@@ -70,7 +73,7 @@ const Nav = ({setVisibleOffer, visibleOffer,bread, setBread}) => {
 }
 
 const Sidebar = ({toggleSidebar, setToggleSidebar}) => {
-    const [visibleOffer, setVisibleOffer] = useState(false);
+
     return (
         <>
             {toggleSidebar && (
@@ -82,13 +85,14 @@ const Sidebar = ({toggleSidebar, setToggleSidebar}) => {
                             <span className={"sr-only"}>Close Navigation</span>
                             <XMarkIcon width={24} height={24} onClick={() => setToggleSidebar(false)}/>
                         </button>
-                        <Nav visibleOffer={visibleOffer} setVisibleOffer={setVisibleOffer}/>
+                        <Nav
+                            toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
                     </div>
                 </div>
             )}
             <div
                 className={"hidden h-full lg:block fixed z-20  top-[3.8125rem] left-[max(opx,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 pr-8 overflow-y-auto"}>
-                <Nav visibleOffer={visibleOffer} setVisibleOffer={setVisibleOffer}/>
+                <Nav/>
             </div>
         </>
     )

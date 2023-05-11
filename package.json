@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.0.17",
+    "@xata.io/client": "^0.23.5",
     "eslint": "8.39.0",
     "eslint-config-next": "13.4.0",
     "framer-motion": "^10.12.7",
