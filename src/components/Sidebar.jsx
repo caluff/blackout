@@ -3,7 +3,7 @@ import Link from "next/link";
 import {useState} from "react";
 import {categories} from "@/constants";
 
-const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar,records}) => {
+const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
     const metToggle = () => {
         if (toggleSidebar) setToggleSidebar(false)
@@ -12,17 +12,17 @@ const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar,records}) => {
     const isActive = "block border-l pl-4 -ml-px text-indigo-400 border-current font-semibold"
     //({isActive}) => isActive ? isActive : isNotActive
     return (
-        <nav id={"nav"} className={"lg:text-sm lg:leading-6 relative"}>
+        <nav id={"nav"} className={"lg:text-sm lg:leading-6 relative h-full bg-black/80"}>
             <div className={"sticky top-0 -ml-0.5 pointer-events-none hidden lg:block"}>
-                <div className={"h-10 bg-slate-900"}></div>
-                <div className={"bg-slate-900 relative pointer-events-auto ml-1"}>
+                <div className={"h-10 bg-transparent"}></div>
+                <div className={"bg-transparent relative pointer-events-auto ml-1"}>
                     <button type={"button"}
-                            className={"text-slate-400 hidden w-full lg:flex items-center text-sm leading-6 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 bg-slate-800 hover:bg-slate-700"}>
+                            className={"text-slate-400 hidden w-full lg:flex items-center text-sm leading-6 rounded-md ring-1 ring-slate-900/10 shadow-sm py-1.5 pl-2 pr-3 hover:ring-slate-300 bg-slate-700 opacity-80 hover:bg-slate-700"}>
                         <MagnifyingGlassIcon width={24} height={24} className={"mr-3 flex-none"}/>
                         Quick search...
                     </button>
                 </div>
-                <div className={"h-8 bg-gradient-to-b from-slate-900"}></div>
+                <div className={"h-8 bg-gradient-to-b from-transparent"}></div>
             </div>
             <ul>
                 <li>

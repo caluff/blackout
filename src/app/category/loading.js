@@ -1,9 +1,9 @@
 const Loading = () => {
     return (
         <div
-            className="relative items-center block max-w-sm p-6 bg-transparent border border-gray-800 rounded-2xl shadow-md hover:bg-slate-800 w-48 h-60 lg:h-80 lg:w-64">
+            className="relative items-center block max-w-sm p-6 bg-transparent border border-gray-800 rounded-2xl shadow-md hover:bg-black hover:opacity-40 w-48 h-60 lg:h-80 lg:w-64">
             <div className="animate-pulse flex flex-col">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-indigo-800-900 dark:text-white opacity-20">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-white opacity-20">
                     Blackout Loading...</h5>
                 <div role="status"
                      className="absolute -translate-x-1/2 -translate-y-1/2 top-2/4 left-1/2">
@@ -21,13 +21,13 @@ const Loading = () => {
                 </div>
                 <div className="space-y-3">
                     <div className="grid grid-cols-3 gap-4">
-                        <div className="h-2 bg-slate-700 rounded col-span-2"></div>
-                        <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                        <div className="h-2 bg-slate-500 rounded col-span-2"></div>
+                        <div className="h-2 bg-slate-500 rounded col-span-1"></div>
                     </div>
-                    <div className="h-2 bg-slate-700 rounded"></div>
-                    <div className="h-2 bg-slate-700 rounded"></div>
-                    <div className="h-2 bg-slate-700 rounded"></div>
-                    <div className="h-2 bg-slate-700 rounded"></div>
+                    <div className="h-2 bg-slate-500 rounded"></div>
+                    <div className="h-2 bg-slate-500 rounded"></div>
+                    <div className="h-2 bg-slate-500 rounded"></div>
+                    <div className="h-2 bg-slate-500 rounded"></div>
                 </div>
             </div>
 

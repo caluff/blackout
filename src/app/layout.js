@@ -14,7 +14,7 @@ export default function RootLayout({children}) {
     const [bread, setBread] = useState("Home");
     return (
         <html lang="en">
-        <body className={"bg-slate-900"}>
+        <body className={"relative bg-hero bg-cover bg-no-repeat bg-center bg-fixed"}>
         <Navbar setToggleSidebar={setToggleSidebar} bread={bread} setBread={setBread}/>
         <div className={"overflow-hidden"}>
             <div className={"max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8"}>

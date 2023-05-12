@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Navbar = ({setToggleSidebar,bread}) => {
   return (
-      <div className={"sticky top-0 z-40 w-full backdrop-blur-md flex-none transition-colors duration-500" +
+      <div className={"bg-black/80 sticky top-0 z-40 w-full backdrop-blur-lg flex-none transition-colors duration-500" +
           "lg:z-50 lg:border-b border-slate-50/[0.06] " +
           "bg-transparent"}>
           <div className={"max-w-[90rem] mx-auto"}>
