@@ -1,11 +1,10 @@
 import Link from "next/link";
-import {bg1, bg2} from "../../public";
-import Carousel from "@/components/Carousel";
+import CarouselDescription from "@/components/CarouselDescription";
 
 export default async function Home() {
     return (
         <header className={"relative"}>
-            <div className={"relative max-w-5xl mx-auto pt-10 sm:pt-14 lg:pt-24"}>
+            <div className={"relative max-w-5xl mx-auto pt-8 sm:pt-10 lg:pt-14"}>
                 <h1 className="text-white font-extrabold text-4xl sm:text-5xl lg:text-6xl text-center tracking-tight">
                     Bienvenidos al Blackout</h1>
                 <div className={"mt-6 sm:mt-10 flex-row sm:flex justify-center space-x-6 text-sm"}>
@@ -39,7 +38,7 @@ export default async function Home() {
                         </li>
                     </ul>
                 </div>
-                <Carousel/>
+                <CarouselDescription/>
             </div>
 
         </header>
