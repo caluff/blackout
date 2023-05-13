@@ -1,4 +1,6 @@
 import Link from "next/link";
+import {bg1, bg2} from "../../public";
+import Carousel from "@/components/Carousel";
 
 export default async function Home() {
     return (
@@ -6,9 +8,6 @@ export default async function Home() {
             <div className={"relative max-w-5xl mx-auto pt-10 sm:pt-14 lg:pt-24"}>
                 <h1 className="text-white font-extrabold text-4xl sm:text-5xl lg:text-6xl text-center tracking-tight">
                     Bienvenidos al Blackout</h1>
-                <p className="mt-6 text-lg text-slate-400 text-center max-w-3xl mx-auto">
-                    Descripcion bla bla bla bla
-                </p>
                 <div className={"mt-6 sm:mt-10 flex-row sm:flex justify-center space-x-6 text-sm"}>
                     <Link
                         className={"mb-6 shadow-lg shadow-sky-500/50 bg-sky-500 hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-12 rounded-lg w-full flex items-center justify-center sm:w-auto"}
@@ -40,9 +39,11 @@ export default async function Home() {
                         </li>
                     </ul>
                 </div>
+                <Carousel/>
             </div>
 
         </header>
 
     )
 }
+

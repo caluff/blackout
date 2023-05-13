@@ -23,6 +23,11 @@ const FetchPost = async ({idTitle}) => {
                             <p className="text-sm text-white">
                                 {record.description}
                             </p>
+                        {/*     <div className="mt-4 flex flex-wrap gap-1">
+                                <span className="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
+                                    {record.description}
+                                </span>
+                            </div>*/}
                         </div>
                     </div>
                 </div>
