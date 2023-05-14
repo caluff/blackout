@@ -2,6 +2,7 @@ import {MagnifyingGlassIcon, HomeIcon, QueueListIcon, XMarkIcon} from "@heroicon
 import Link from "next/link";
 import {useState} from "react";
 import {categories} from "@/constants";
+import {LiOffer} from "@/utils";
 
 const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
@@ -53,16 +54,8 @@ const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
                             Category
                         </h5>
                         <ul className={"space-y-6 lg:space-y-2 border-l border-slate-800"}>
-                            {categories.map((category) => (
-                                <li key={category.id} aria-label="Sidebar navigation">
-                                    <Link href={category.route}
-                                          className={category.current?isActive:isNotActive}
-                                          onClick={() => metToggle()}
-                                          aria-current={category.current ? 'page' :true}
-                                    >
-                                        {category.title}
-                                    </Link>
-                                </li>
+                            {categories.map((category,index) => (
+                                <LiOffer key={category.id} category={category} isActive={isActive} isNotActive={isNotActive} metToggle={metToggle} index={index}/>
                             ))}
                         </ul>
                     </li>

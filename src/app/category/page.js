@@ -23,7 +23,7 @@ async function Category() {
                         </div>
                         <Suspense fallback={<Loading/>}>
                             <div className={"flex-row flex flex-wrap gap-4"}>
-                                <FetchPost idTitle={id}/>
+                                {/*<FetchPost idTitle={id}/>*/}
                             </div>
                         </Suspense>
                     </div>
