@@ -1,5 +1,5 @@
 import {ChevronRightIcon} from "@heroicons/react/24/outline";
-import {usePathname, useSelectedLayoutSegments} from 'next/navigation';
+import {useSelectedLayoutSegments} from 'next/navigation';
 import Link from "next/link";
 
 

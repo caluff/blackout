@@ -5,7 +5,7 @@ import {categories} from "@/constants";
 import {LiOffer} from "@/utils";
 import {usePathname} from "next/navigation";
 
-const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
+const Nav = ({toggleSidebar, setToggleSidebar}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
     const pathname = usePathname();
 
