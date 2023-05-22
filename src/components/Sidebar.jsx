@@ -31,9 +31,10 @@ const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
             <ul>
                 <li>
                     <Link href={"/"}
-                          className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-semibold text-sky-400 "}>
+                          className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-semibold text-sky-400 "}
+                          onClick={() => setVisibleOffer(false)}>
                         <div
-                            onClick={() => setVisibleOffer(false)}
+
                             className={"shadow-lg shadow-sky-500/50 mr-4 rounded-md ring-0 ring-slate-900/5 group-hover:ring-slate-900/10 group-hover:bg-sky-500 bg-slate-700"}>
                             <HomeIcon width={24} height={24}/>
                         </div>
@@ -61,7 +62,8 @@ const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
                             {categories.map((category, index) => {
                                 const isActive = pathname.startsWith(`/offer/#${category.id}`);
                                 return (
-                                    <LiOffer key={category.id} category={category} isActive={isActive} isActiveS={isActiveS} isNotActiveS={isNotActiveS}
+                                    <LiOffer key={category.id} category={category} isActive={isActive}
+                                             isActiveS={isActiveS} isNotActiveS={isNotActiveS}
                                              metToggle={metToggle} index={index}/>
 
                                 )
@@ -81,8 +83,8 @@ const Sidebar = ({toggleSidebar, setToggleSidebar}) => {
         <>
             {toggleSidebar && (
                 <div className={"fixed z-50 inset-0 overflow-y-auto lg:hidden"}>
-                    <div className={"fixed inset-0 bg-slate-900/80 backdrop-blur-sm"}></div>
-                    <div className={"relative bg-slate-800 p-6 w-80 max-w-[calc(100%-3rem)]"}>
+                    <div className={"fixed inset-0 bg-black/80 backdrop-blur-sm"}></div>
+                    <div className={"relative bg-black p-6 w-80 max-w-[calc(100%-3rem)]"}>
                         <button type={"button"}
                                 className={"absolute z-10 top-5 right-5 w-8 h-8 flex items-center justify-center hover:text-slate-300 text-slate-400"}>
                             <span className={"sr-only"}>Close Navigation</span>

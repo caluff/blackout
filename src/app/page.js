@@ -1,6 +1,5 @@
 import Link from "next/link";
 import CarouselDescription from "@/components/CarouselDescription";
-import {motion} from "framer-motion";
 import {Bienvenido} from "@/utils";
 
 export default async function Home() {
