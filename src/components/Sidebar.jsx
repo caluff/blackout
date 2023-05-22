@@ -3,14 +3,17 @@ import Link from "next/link";
 import {useState} from "react";
 import {categories} from "@/constants";
 import {LiOffer} from "@/utils";
+import {usePathname} from "next/navigation";
 
 const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
+    const pathname = usePathname();
+
     const metToggle = () => {
         if (toggleSidebar) setToggleSidebar(false)
     }
-    const isNotActive = "block border-l pl-4 -ml-px  border-transparent hover:border-slate-500 text-slate-400 hover:text-slate-300"
-    const isActive = "block border-l pl-4 -ml-px text-indigo-400 border-current font-semibold"
+    const isNotActiveS = "block border-l pl-4 -ml-px  border-transparent hover:border-slate-500 text-slate-400 hover:text-slate-300"
+    const isActiveS = "block border-l pl-4 -ml-px text-indigo-400 border-current font-semibold"
     //({isActive}) => isActive ? isActive : isNotActive
     return (
         <nav id={"nav"} className={"lg:text-sm lg:leading-6 relative h-full bg-black/80"}>
@@ -38,10 +41,11 @@ const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={"/category"}
-                          className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-medium text-indigo-400"}
-                          onClick={() => setVisibleOffer(true)}>
+                    <Link href={"/offer"}
+                          onClick={() => setVisibleOffer(true)}
+                          className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-medium text-indigo-400"}>
                         <div
+
                             className={"shadow-lg shadow-indigo-500/50 mr-4 rounded-md ring-0 ring-slate-900/5 group-hover:ring-slate-900/10 group-hover:bg-indigo-500 bg-slate-800"}>
                             <QueueListIcon width={24} height={24}/>
                         </div>
@@ -54,9 +58,15 @@ const Nav = ({bread, setBread, toggleSidebar, setToggleSidebar}) => {
                             Category
                         </h5>
                         <ul className={"space-y-6 lg:space-y-2 border-l border-slate-800"}>
-                            {categories.map((category,index) => (
-                                <LiOffer key={category.id} category={category} isActive={isActive} isNotActive={isNotActive} metToggle={metToggle} index={index}/>
-                            ))}
+                            {categories.map((category, index) => {
+                                const isActive = pathname.startsWith(`/offer/#${category.id}`);
+                                return (
+                                    <LiOffer key={category.id} category={category} isActive={isActive} isActiveS={isActiveS} isNotActiveS={isNotActiveS}
+                                             metToggle={metToggle} index={index}/>
+
+                                )
+                            })}
+
                         </ul>
                     </li>
                 )}

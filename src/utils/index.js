@@ -24,15 +24,15 @@ const Bienvenido = () => {
         </motion.h1>
     )
 }
-const LiOffer = ({category, isActive, isNotActive, metToggle, index}) => {
+const LiOffer = ({category, isActive,isActiveS, isNotActiveS, metToggle, index}) => {
     return (
-        <motion.li aria-label="Sidebar navigation"
+        <motion.li
                    initial={{opacity: 0}}
                    animate={{opacity: 1}}
                    transition={{duration:index*1.5}}
         >
             <Link href={category.route}
-                  className={category.current ? isActive : isNotActive}
+                  className={isActive ? isActiveS : isNotActiveS}
                   onClick={() => metToggle()}
             >
                 {category.title}
@@ -40,5 +40,6 @@ const LiOffer = ({category, isActive, isNotActive, metToggle, index}) => {
         </motion.li>
     )
 }
+
 export {Bienvenido, LiOffer,}
 

@@ -11,7 +11,7 @@ export default async function Home() {
                 <div className={"mt-6 sm:mt-10 flex-row sm:flex justify-center space-x-6 text-sm"}>
                     <Link
                         className={"mb-6 shadow-lg shadow-sky-500/50 bg-sky-500 hover:bg-sky-400 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-12 rounded-lg w-full flex items-center justify-center sm:w-auto"}
-                        href={"/category"}>
+                        href={"/offer"}>
                         Get Offer
                     </Link>
                     <ul className="sm:flex items-center gap-6 md:gap-8">

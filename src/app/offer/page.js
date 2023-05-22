@@ -1,9 +1,9 @@
 import FetchPost from "@/components/FetchPost";
 import {Suspense} from "react";
-import Loading from "@/app/category/loading";
+import Loading from "@/app/offer/loading";
 
 
-async function Category() {
+async function Offer() {
     return (
         <>
             <div className={"flex flex-col text-slate-200"}>
@@ -34,4 +34,4 @@ async function Category() {
     )
 }
 
-export default Category
+export default Offer

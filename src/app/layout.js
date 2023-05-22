@@ -11,7 +11,7 @@ export const metadata = {
 }
 export default function RootLayout({children}) {
     const [toggleSidebar, setToggleSidebar] = useState(false);
-    const [bread, setBread] = useState("Home");
+    const [bread, setBread] = useState(true);
     return (
         <html lang="en">
         <body className={"relative bg-hero bg-cover bg-no-repeat bg-center bg-fixed"}>
