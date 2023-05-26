@@ -10,7 +10,7 @@ const Breadcrumb = () => {
             <ol className="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0">
                 {segments.map((segment, index) => (
                     <li className={"flex item-center text-white"} key={index}>
-                        <Link href={"/"} passHref>
+                        <Link href={`${segment}`} passHref>
                             {segment}
                         </Link>
                         <ChevronRightIcon className={"mx-3 overflow-visible text-slate-400 w-3 h-6"}/>

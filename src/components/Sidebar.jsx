@@ -65,10 +65,8 @@ const Nav = ({toggleSidebar, setToggleSidebar}) => {
                                     <LiOffer key={category.id} category={category} isActive={isActive}
                                              isActiveS={isActiveS} isNotActiveS={isNotActiveS}
                                              metToggle={metToggle} index={index}/>
-
                                 )
                             })}
-
                         </ul>
                     </li>
                 )}

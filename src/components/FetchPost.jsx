@@ -8,8 +8,8 @@ const FetchPost = async ({idTitle}) => {
     const records = await xata.db.offer.getAll()
     return records.map((record) => (
         idTitle === record.category && (
-            <Link href={`/offer/#${record.category}`} key={record.id}
-                  className={"rounded-2xl group relative block bg-black lg:h-80 h-60"}>
+            <div key={record.id}
+                  className={"rounded-2xl group relative block bg-black lg:h-80 h-60 cursor-pointer"}>
                 <Image src={coffee} alt={record.name}
                        className={"rounded-2xl absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-30"}/>
                 <div className={"relative p-4 sm:p-6 lg:p-8"}>
@@ -31,7 +31,7 @@ const FetchPost = async ({idTitle}) => {
                         </div>
                     </div>
                 </div>
-            </Link>
+            </div>
         )))
 }
 export default FetchPost

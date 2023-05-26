@@ -1,8 +1,6 @@
 import FetchPost from "@/components/FetchPost";
 import {Suspense} from "react";
 import Loading from "@/app/offer/loading";
-
-
 async function Offer() {
     return (
         <div className={"flex flex-col text-slate-200"}>
@@ -14,7 +12,7 @@ async function Offer() {
                 ['dulces', 'Dulces'],
                 ['elaborados', 'Elaborados']
             ].map(([id, title]) => (
-                <div key={id} className={"relative z-20 border-b border-slate-50/10"}>
+                <section id={"id"} key={id} className={"relative z-20 border-b border-slate-50/10"}>
                     <div className={"flex items-center"}>
                         <h1 className={"text-2xl sm:text-3xl font-extrabold tracking-tight text-indigo-400 my-4"}>
                             {title}
@@ -25,7 +23,7 @@ async function Offer() {
                             <FetchPost idTitle={id}/>
                         </div>
                     </Suspense>
-                </div>
+                </section>
             ))}
         </div>
     )
