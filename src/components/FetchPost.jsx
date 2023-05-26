@@ -1,5 +1,4 @@
 import {getXataClient} from "@/xata";
-import Link from "next/link";
 import Image from "next/image";
 import {coffee} from '../../public'
 
