@@ -1,6 +1,5 @@
 'use client'
 import {motion} from "framer-motion";
-import Link from "next/link";
 
 const variants = {
     hidden: {
@@ -8,9 +7,8 @@ const variants = {
     },
     visible: {
         opacity: 1,
-        transition:{duration:1},
+        transition: {duration: 1},
     }
-
 }
 const Bienvenido = () => {
     return (
@@ -24,19 +22,18 @@ const Bienvenido = () => {
         </motion.h1>
     )
 }
-const LiOffer = ({category, isActive,isActiveS, isNotActiveS, metToggle, index}) => {
+const LiOffer = ({category, isActive, isActiveS, isNotActiveS, metToggle, index}) => {
     return (
         <motion.li
-                   initial={{opacity: 0}}
-                   animate={{opacity: 1}}
-                   transition={{duration:index*1.5}}
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: index * 1.5}}
         >
-            <Link href={category.route}
-                  className={isActive ? isActiveS : isNotActiveS}
-                  onClick={() => metToggle()}
+            <div className={isActive ? isActiveS : isNotActiveS}
+                 onClick={() => metToggle()}
             >
                 {category.title}
-            </Link>
+            </div>
         </motion.li>
     )
 }

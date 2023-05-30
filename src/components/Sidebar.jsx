@@ -4,6 +4,7 @@ import {useState} from "react";
 import {categories} from "@/constants";
 import {LiOffer} from "@/utils";
 import {usePathname} from "next/navigation";
+import ScrollLink from "@/components/ScrollLink";
 
 const Nav = ({toggleSidebar, setToggleSidebar}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
@@ -62,9 +63,11 @@ const Nav = ({toggleSidebar, setToggleSidebar}) => {
                             {categories.map((category, index) => {
                                 const isActive = pathname.startsWith(`/offer/#${category.id}`);
                                 return (
-                                    <LiOffer key={category.id} category={category} isActive={isActive}
-                                             isActiveS={isActiveS} isNotActiveS={isNotActiveS}
-                                             metToggle={metToggle} index={index}/>
+                                    <ScrollLink href={category.route}>
+                                        <LiOffer key={category.id} category={category} isActive={isActive}
+                                                 isActiveS={isActiveS} isNotActiveS={isNotActiveS}
+                                                 metToggle={metToggle} index={index}/>
+                                    </ScrollLink>
                                 )
                             })}
                         </ul>
