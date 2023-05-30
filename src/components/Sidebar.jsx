@@ -1,7 +1,7 @@
 import {MagnifyingGlassIcon, HomeIcon, QueueListIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import {useState} from "react";
-import {categories} from "@/constants";
+import {categoriesRoute} from "@/constants";
 import {LiOffer} from "@/utils";
 import {usePathname} from "next/navigation";
 import ScrollLink from "@/components/ScrollLink";
@@ -70,7 +70,7 @@ const Nav = ({toggleSidebar, setToggleSidebar,setCurrentSection,currentSection})
                             Category
                         </h5>
                         <ul className={"space-y-6 lg:space-y-2 border-l border-slate-800"}>
-                            {categories.map((category, index) => {
+                            {categoriesRoute.map((category, index) => {
                                 const isActive = pathname.startsWith(`/offer/#${category.id}`);
                                 return (
                                     <ScrollLink href={category.route} setCurrentSection={setCurrentSection}>
@@ -102,13 +102,18 @@ const Sidebar = ({toggleSidebar, setToggleSidebar, setCurrentSection, currentSec
                             <XMarkIcon width={24} height={24} onClick={() => setToggleSidebar(false)}/>
                         </button>
                         <Nav
-                            toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} setCurrentSection={setCurrentSection} currentSection={currentSection}/>
+                            toggleSidebar={toggleSidebar}
+                            setToggleSidebar={setToggleSidebar}
+                            setCurrentSection={setCurrentSection}
+                            currentSection={currentSection}
+                        />
                     </div>
                 </div>
             )}
             <div
                 className={"hidden h-full lg:block fixed z-20  top-[3.8125rem] left-[max(opx,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 pr-8 overflow-y-auto"}>
-                <Nav setCurrentSection={setCurrentSection} currentSection={currentSection}/>
+                <Nav setCurrentSection={setCurrentSection}
+                     currentSection={currentSection}/>
             </div>
         </>
     )

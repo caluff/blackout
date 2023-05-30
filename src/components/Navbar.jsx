@@ -3,6 +3,8 @@ import logo from "../../public/descarga.png";
 import {Bars3Icon, MagnifyingGlassIcon} from "@heroicons/react/24/outline";
 import Breadcrumb from "@/components/Breadcrumb";
 import {useSelectedLayoutSegments} from "next/navigation";
+import {categoriesFetch} from "@/constants";
+
 const Navbar = ({setToggleSidebar, currentSection}) => {
     const segments = useSelectedLayoutSegments()
     return (
@@ -35,8 +37,10 @@ const Navbar = ({setToggleSidebar, currentSection}) => {
                         <Bars3Icon width={24} height={24} onClick={() => setToggleSidebar(true)}/>
                     </button>
                     <Breadcrumb items={segments}/>
-                    {currentSection!==null?
-                        <span className={"flex item-center text-indigo-400"}>{currentSection}</span>
+                    {currentSection !== null ?
+                        <span className={"flex item-center text-indigo-400"}>{categoriesFetch.map(([id,text])=>(
+                            (id===currentSection)?text:''
+                        ))}</span>
                         :
                         <></>}
 

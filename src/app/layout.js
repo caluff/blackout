@@ -17,7 +17,11 @@ export default function RootLayout({children}) {
         <Navbar setToggleSidebar={setToggleSidebar} currentSection={currentSection}/>
         <div className={"overflow-hidden"}>
             <div className={"max-w-[90rem] mx-auto px-4 sm:px-6 md:px-8"}>
-                <Sidebar toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} setCurrentSection={setCurrentSection} currentSection={currentSection}/>
+                <Sidebar toggleSidebar={toggleSidebar}
+                         setToggleSidebar={setToggleSidebar}
+                         setCurrentSection={setCurrentSection}
+                         currentSection={currentSection}
+                />
                 <div className={"lg:pl-[19rem]"}>
                     <main className={"max-w-3xl mx-auto relative z-20 pt-10 xl:max-w-none"}>
                         {children}
