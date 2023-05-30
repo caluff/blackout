@@ -1,7 +1,7 @@
 import {MagnifyingGlassIcon, HomeIcon, QueueListIcon, XMarkIcon} from "@heroicons/react/24/outline";
 import Link from "next/link";
 import {useState} from "react";
-import {categories} from "@/constants";
+import {categoriesRoute} from "@/constants";
 import {LiOffer} from "@/utils";
 import {usePathname} from "next/navigation";
 import ScrollLink from "@/components/ScrollLink";
@@ -70,7 +70,7 @@ const Nav = ({toggleSidebar, setToggleSidebar,setCurrentSection,currentSection})
                             Category
                         </h5>
                         <ul className={"space-y-6 lg:space-y-2 border-l border-slate-800"}>
-                            {categories.map((category, index) => {
+                            {categoriesRoute.map((category, index) => {
                                 const isActive = pathname.startsWith(`/offer/#${category.id}`);
                                 return (
                                     <ScrollLink href={category.route} setCurrentSection={setCurrentSection}>

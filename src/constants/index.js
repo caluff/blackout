@@ -1,4 +1,4 @@
-export const categories = [
+export const categoriesRoute = [
     {
         id: "cocteles_de_la_casa",
         title: "Cocteles de la casa",
@@ -36,3 +36,11 @@ export const categories = [
         current:false
     },
 ];
+export const categoriesFetch = [
+    ['cocteles_de_la_casa', 'Cocteles de la Casa'],
+    ['especialidades_de_cafe', 'Especialidades de Café'],
+    ['cocteles', 'Cocteles'],
+    ['bebidas', 'Bebidas'],
+    ['dulces', 'Dulces'],
+    ['elaborados', 'Elaborados']
+]
