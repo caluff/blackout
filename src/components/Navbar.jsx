@@ -2,7 +2,9 @@ import Image from "next/image";
 import logo from "../../public/descarga.png";
 import {Bars3Icon, MagnifyingGlassIcon} from "@heroicons/react/24/outline";
 import Breadcrumb from "@/components/Breadcrumb";
-const Navbar = ({setToggleSidebar}) => {
+import {useSelectedLayoutSegments} from "next/navigation";
+const Navbar = ({setToggleSidebar, currentSection}) => {
+    const segments = useSelectedLayoutSegments()
     return (
         <div
             className={"bg-black/80 sticky top-0 z-40 w-full backdrop-blur-lg flex-none transition-colors duration-500" +
@@ -32,7 +34,12 @@ const Navbar = ({setToggleSidebar}) => {
                         <span className={"sr-only"}>Navigation</span>
                         <Bars3Icon width={24} height={24} onClick={() => setToggleSidebar(true)}/>
                     </button>
-                    <Breadcrumb/>
+                    <Breadcrumb items={segments}/>
+                    {currentSection!==null?
+                        <span className={"flex item-center text-indigo-400"}>{currentSection}</span>
+                        :
+                        <></>}
+
                 </div>
 
             </div>

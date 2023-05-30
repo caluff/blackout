@@ -6,12 +6,22 @@ import {LiOffer} from "@/utils";
 import {usePathname} from "next/navigation";
 import ScrollLink from "@/components/ScrollLink";
 
-const Nav = ({toggleSidebar, setToggleSidebar}) => {
+const Nav = ({toggleSidebar, setToggleSidebar,setCurrentSection,currentSection}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
     const pathname = usePathname();
 
     const metToggle = () => {
         if (toggleSidebar) setToggleSidebar(false)
+    }
+    const homeClick =()=>{
+        visibleOff();
+        currentOff();
+    }
+    const visibleOff =()=>{
+        setVisibleOffer(false)
+    }
+    const currentOff =()=>{
+        if(currentSection!==null) setCurrentSection(null)
     }
     const isNotActiveS = "block border-l pl-4 -ml-px  border-transparent hover:border-slate-500 text-slate-400 hover:text-slate-300"
     const isActiveS = "block border-l pl-4 -ml-px text-indigo-400 border-current font-semibold"
@@ -33,7 +43,7 @@ const Nav = ({toggleSidebar, setToggleSidebar}) => {
                 <li>
                     <Link href={"/"}
                           className={"group flex items-center lg:text-sm lg:leading-6 mb-4 font-semibold text-sky-400 "}
-                          onClick={() => setVisibleOffer(false)}>
+                          onClick={() => homeClick()}>
                         <div
 
                             className={"shadow-lg shadow-sky-500/50 mr-4 rounded-md ring-0 ring-slate-900/5 group-hover:ring-slate-900/10 group-hover:bg-sky-500 bg-slate-700"}>
@@ -63,7 +73,7 @@ const Nav = ({toggleSidebar, setToggleSidebar}) => {
                             {categories.map((category, index) => {
                                 const isActive = pathname.startsWith(`/offer/#${category.id}`);
                                 return (
-                                    <ScrollLink href={category.route}>
+                                    <ScrollLink href={category.route} setCurrentSection={setCurrentSection}>
                                         <LiOffer key={category.id} category={category} isActive={isActive}
                                                  isActiveS={isActiveS} isNotActiveS={isNotActiveS}
                                                  metToggle={metToggle} index={index}/>
@@ -78,7 +88,7 @@ const Nav = ({toggleSidebar, setToggleSidebar}) => {
     )
 }
 
-const Sidebar = ({toggleSidebar, setToggleSidebar}) => {
+const Sidebar = ({toggleSidebar, setToggleSidebar, setCurrentSection, currentSection}) => {
 
     return (
         <>
@@ -92,13 +102,13 @@ const Sidebar = ({toggleSidebar, setToggleSidebar}) => {
                             <XMarkIcon width={24} height={24} onClick={() => setToggleSidebar(false)}/>
                         </button>
                         <Nav
-                            toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar}/>
+                            toggleSidebar={toggleSidebar} setToggleSidebar={setToggleSidebar} setCurrentSection={setCurrentSection} currentSection={currentSection}/>
                     </div>
                 </div>
             )}
             <div
                 className={"hidden h-full lg:block fixed z-20  top-[3.8125rem] left-[max(opx,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 pr-8 overflow-y-auto"}>
-                <Nav/>
+                <Nav setCurrentSection={setCurrentSection} currentSection={currentSection}/>
             </div>
         </>
     )
