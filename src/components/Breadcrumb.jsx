@@ -23,7 +23,7 @@ const Breadcrumb = () => {
                             return (
                                 <li className={"flex item-center text-white"} key={index}>
                                     <Link href={`${segment}`} passHref>
-                                        {segment}
+                                        {segment.charAt(0).toUpperCase() + segment.slice(1)}
                                     </Link>
                                     <ChevronRightIcon className={"mx-3 overflow-visible text-slate-400 w-3 h-6"}/>
                                 </li>);
@@ -31,7 +31,7 @@ const Breadcrumb = () => {
                             return (
                                 <li className={"flex item-center text-white"} key={index}>
                                     <Link href={`${segment}`} passHref>
-                                        {segment}
+                                        {segment.charAt(0).toUpperCase() + segment.slice(1)}
                                     </Link>
                                     <ChevronRightIcon className={"mx-3 overflow-visible text-slate-400 w-3 h-6"}/>
                                 </li>
