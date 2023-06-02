@@ -3,10 +3,12 @@ import Link from "next/link";
 import {useState} from "react";
 import {categoriesRoute} from "@/constants";
 import {LiOffer} from "@/utils";
+import {usePathname} from "next/navigation";
 import ScrollLink from "@/components/ScrollLink";
 
 const Nav = ({toggleSidebar, setToggleSidebar,setCurrentSection,currentSection}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
+    const pathname = usePathname();
     const metToggle = () => {
         if (toggleSidebar) setToggleSidebar(false)
     }
@@ -68,6 +70,7 @@ const Nav = ({toggleSidebar, setToggleSidebar,setCurrentSection,currentSection})
                         </h5>
                         <ul className={"space-y-6 lg:space-y-2 border-l border-slate-800"}>
                             {categoriesRoute.map((category, index) => {
+                                const isActive = pathname.startsWith(`/offer/#${category.id}`);
                                 return (
                                     <ScrollLink href={category.route} setCurrentSection={setCurrentSection}>
                                         <LiOffer key={category.id} category={category} isActive={isActive}

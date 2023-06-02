@@ -40,9 +40,7 @@ export default async function Home() {
                 </div>
                 <CarouselDescription/>
             </div>
-
         </header>
-
     )
 }
 
