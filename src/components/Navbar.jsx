@@ -39,11 +39,10 @@ const Navbar = ({setToggleSidebar, currentSection}) => {
                     <Breadcrumb items={segments}/>
                     {currentSection !== null ?
                         <span className={"flex item-center text-indigo-400"}>{categoriesFetch.map(([id,text])=>(
-                            (id===currentSection)?text:''
+                            (id===currentSection)?text:<></>
                         ))}</span>
                         :
                         <></>}
-
                 </div>
 
             </div>

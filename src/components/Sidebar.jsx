@@ -9,7 +9,6 @@ import ScrollLink from "@/components/ScrollLink";
 const Nav = ({toggleSidebar, setToggleSidebar,setCurrentSection,currentSection}) => {
     const [visibleOffer, setVisibleOffer] = useState(false);
     const pathname = usePathname();
-
     const metToggle = () => {
         if (toggleSidebar) setToggleSidebar(false)
     }
@@ -112,8 +111,10 @@ const Sidebar = ({toggleSidebar, setToggleSidebar, setCurrentSection, currentSec
             )}
             <div
                 className={"hidden h-full lg:block fixed z-20  top-[3.8125rem] left-[max(opx,calc(50%-45rem))] right-auto w-[19.5rem] pb-10 pr-8 overflow-y-auto"}>
-                <Nav setCurrentSection={setCurrentSection}
-                     currentSection={currentSection}/>
+                <Nav
+                    setCurrentSection={setCurrentSection}
+                    currentSection={currentSection}
+                />
             </div>
         </>
     )

@@ -5,7 +5,6 @@ import Link from "next/link";
 
 const Breadcrumb = () => {
     const segments = useSelectedLayoutSegments()
-    console.log(segments.length)
     return (
         <nav aria-label="breadcrumb">
             <ol className="ml-4 flex text-sm leading-6 whitespace-nowrap min-w-0">
@@ -23,7 +22,7 @@ const Breadcrumb = () => {
                             return (
                                 <li className={"flex item-center text-white"} key={index}>
                                     <Link href={`${segment}`} passHref>
-                                        {segment.charAt(0).toUpperCase() + segment.slice(1)}
+                                        {segment}
                                     </Link>
                                     <ChevronRightIcon className={"mx-3 overflow-visible text-slate-400 w-3 h-6"}/>
                                 </li>);
@@ -31,7 +30,7 @@ const Breadcrumb = () => {
                             return (
                                 <li className={"flex item-center text-white"} key={index}>
                                     <Link href={`${segment}`} passHref>
-                                        {segment.charAt(0).toUpperCase() + segment.slice(1)}
+                                        {segment}
                                     </Link>
                                     <ChevronRightIcon className={"mx-3 overflow-visible text-slate-400 w-3 h-6"}/>
                                 </li>
