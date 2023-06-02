@@ -1,8 +1,8 @@
-function NavS() {
+function P1() {
     return (
         <h1 className={"text-white"}>
-            navvvvvvvvvvvv
+            P11111111111111111111111
         </h1>
     )
 }
-export default NavS;
+export default P1;
